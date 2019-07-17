@@ -33,7 +33,17 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.0.2'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 
-    
+    /** RecyclerViewのライブラリ リスト形式の表示をする */
+    implementation 'com.android.support:recyclerview-v7:29.0.0'
+    /** OkHttp3のライブラリ Http通信をする */
+    implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: '4.0.0'
+    /** JSONのパースライブラリ Moshi */
+    implementation group: 'com.squareup.moshi', name: 'moshi', version: '1.8.0'
+    implementation 'com.squareup.moshi:moshi-kotlin:1.8.0'
+    /** Picassoのライブラリ 画像を扱うライブラリ */
+    implementation group: 'com.squareup.picasso', name: 'picasso', version: '2.5.2'
+    /** Coroutines Core 非同期処理を実装する */
+    implementation group: 'org.jetbrains.kotlinx', name: 'kotlinx-coroutines-core', version: '1.2.2'
 
 
     /** 単体テスト用ライブラリ */
