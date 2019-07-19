@@ -5,21 +5,24 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity" android:background="@android:color/background_dark">
+        tools:context=".MainActivity" android:background="#000000">
     <Button
             android:text="@string/get_article_button_text"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:id="@+id/buttonGetArticle" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="3dp"
+            app:layout_constraintStart_toStartOf="parent"
             android:textAlignment="center" android:background="@android:color/darker_gray"
-            android:textColor="@android:color/background_light" android:textSize="20sp"/>
-    <View
+            android:textColor="@android:color/background_light" android:textSize="20sp"
+            app:layout_constraintHorizontal_bias="1.0"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:id="@+id/container"
             app:layout_constraintTop_toBottomOf="@+id/buttonGetArticle"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:id="@+id/container">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
