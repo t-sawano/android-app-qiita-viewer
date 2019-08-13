@@ -1,4 +1,4 @@
-package jp.co.cries.qiitaviewer
+package jp.co.cries.qiitaviewer.fragments
 
 
 import android.os.Bundle

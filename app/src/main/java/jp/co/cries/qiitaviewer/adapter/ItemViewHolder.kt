@@ -3,13 +3,18 @@ package jp.co.cries.qiitaviewer.adapter
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import jp.co.cries.qiitaviewer.R
+
 
 /**
  * 新着記事一覧に表示するRowのViewHolder
  */
 class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view){
+    val foreground: ConstraintLayout = view.findViewById(R.id.foreground)
+    val background: ConstraintLayout = view.findViewById(R.id.background)
+
     /** 記事作成者アイコン */
     val icon: ImageView = view.findViewById(R.id.articleIcon)
 

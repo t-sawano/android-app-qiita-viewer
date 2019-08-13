@@ -3,8 +3,8 @@
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             tools:context=".ArticleListFragment">
+             tools:context=".fragments.ArticleListFragment">
     <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_height="match_parent" android:id="@+id/articleList"/>
+            android:layout_height="match_parent" android:id="@+id/article_list"/>
 </FrameLayout>

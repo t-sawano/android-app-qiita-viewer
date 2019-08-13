@@ -1,16 +1,17 @@
-package jp.co.cries.qiitaviewer
+package jp.co.cries.qiitaviewer.activity
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import jp.co.cries.qiitaviewer.entity.ItemEntity
-import jp.co.cries.qiitaviewer.repository.ItemRepository
+import jp.co.cries.qiitaviewer.R
+import jp.co.cries.qiitaviewer.fragments.ArticleListFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**
  * MainActivity
  */
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var getButton: ButtonOnClickListener
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,20 +21,24 @@ class MainActivity : AppCompatActivity() {
         val fragmentManager = this.supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
 
-        fragment?.let {
-            fragment.setContext(this)
+        get_article_button.setOnClickListener {
+            getButton.onClick()
+        }
 
+        fragment?.let {
             /** 初期表示を新着記事の一覧にする。 */
             fragmentTransaction
                 .replace(R.id.container, it)
                 .commit()
         }
+    }
 
-        buttonGetArticle?.setOnClickListener {
-            Log.d("MainActivity#onCreate" ,"記事を取得するボタンが押下されました。")
+    interface ButtonOnClickListener {
+        fun onClick()
+    }
 
-        }
-
+    fun setButtonOnClickListener(listener: ButtonOnClickListener) {
+        this.getButton = listener
     }
 
 }

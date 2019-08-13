@@ -19,13 +19,7 @@ data class UserEntity(
     @Json(name = "id")
     val userName: String ,
     @Json(name = "profile_image_url")
-    val profileImage: String
+    val profileImage: String ,
+    @Json(name="name")
+    val name: String?
 )
-
-/*
-title
-create_at
-user:
-    user_name
-    icon_img
- */

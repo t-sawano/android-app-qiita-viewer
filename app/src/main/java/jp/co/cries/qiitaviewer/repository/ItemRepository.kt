@@ -56,7 +56,10 @@ class ItemRepository {
             }
 
             override fun onFailure(call: Call<List<ItemEntity>>, t: Throwable) {
-                Log.d("" ,"")
+                Log.d("" ,"取得に失敗しました")
+                t.stackTrace.let {
+                    Log.d("" ,"$it")
+                }
             }
         })
     }
