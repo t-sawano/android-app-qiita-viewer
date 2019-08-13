@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">QiitaViewer</string>
+    <string name="get_article_button_text">記事を取得する</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="not_article_title">ここに記事のタイトルが入る</string>
+    <string name="article_date_header">"date: "</string>
+    <string name="article_create_date_text">yyyy-MM-dd hh:mm:ss</string>
+    <string name="articleUserNameHeader">おなまえ：</string>
+    <string name="article_user_name_text">佐藤 志雄</string>
 </resources>
