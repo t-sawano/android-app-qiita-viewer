@@ -15,6 +15,8 @@ class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view){
     val foreground: ConstraintLayout = view.findViewById(R.id.foreground)
     val background: ConstraintLayout = view.findViewById(R.id.background)
 
+    val draggingIcon: ImageView = view.findViewById(R.id.ic_selected_drag)
+
     /** 記事作成者アイコン */
     val icon: ImageView = view.findViewById(R.id.articleIcon)
 

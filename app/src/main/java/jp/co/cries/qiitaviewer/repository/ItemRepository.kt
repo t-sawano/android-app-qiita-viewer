@@ -20,6 +20,7 @@ class ItemRepository {
     companion object {
         /** Qiitaの新着記事取得 RUI */
         const val URI_OF_API = "https://qiita.com/api/v2/"
+        const val PER_PAGE_NUMBER = 5
     }
 
     private var itemService: ItemService
@@ -42,12 +43,12 @@ class ItemRepository {
      * @param perPage 1ページに表示する件数
      * @param callback なにかしてくらさい
      */
-    fun getItemList(page: Int ,perPage:  Int ,callback: (List<ItemEntity>) -> Unit) {
-        itemService.items(page ,perPage).enqueue(object : Callback<List<ItemEntity>> {
-
-            override fun onResponse(call: Call<List<ItemEntity>>? ,response: Response<List<ItemEntity>>?) {
+    fun getItemList(page: Int, perPage: Int = PER_PAGE_NUMBER, callback: (List<ItemEntity>) -> Unit) {
+        Log.d("" ,"$perPage")
+        itemService.items(page, perPage).enqueue(object : Callback<List<ItemEntity>> {
+            override fun onResponse(call: Call<List<ItemEntity>>?, response: Response<List<ItemEntity>>?) {
                 response?.let {
-                    if(response.isSuccessful) {
+                    if (response.isSuccessful) {
                         response.body()?.let {
                             callback(it)
                         }
@@ -56,9 +57,9 @@ class ItemRepository {
             }
 
             override fun onFailure(call: Call<List<ItemEntity>>, t: Throwable) {
-                Log.d("" ,"取得に失敗しました")
+                Log.d("Error Message", "取得に失敗しました")
                 t.stackTrace.let {
-                    Log.d("" ,"$it")
+                    Log.d("", "$it")
                 }
             }
         })
