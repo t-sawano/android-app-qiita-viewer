@@ -1,6 +1,7 @@
 package jp.co.cries.qiitaviewer.activity
 
 import android.os.Bundle
+import android.view.MotionEvent
 import androidx.appcompat.app.AppCompatActivity
 import jp.co.cries.qiitaviewer.R
 import jp.co.cries.qiitaviewer.fragments.ArticleListFragment
@@ -21,9 +22,28 @@ class MainActivity : AppCompatActivity() {
         val fragmentManager = this.supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
 
-        get_article_button.setOnClickListener {
-            getButton.onClick()
+        get_article_button.apply {
+            setOnClickListener {
+                getButton.onClick()
+            }
+            setOnTouchListener { view, motionEvent ->
+                when (motionEvent.action) {
+                    MotionEvent.ACTION_DOWN -> {
+                        view.scaleX = 0.9f
+                        view.scaleY = 0.9f
+                    }
+
+                    else -> {
+                        view.scaleX = 1f
+                        view.scaleY = 1f
+                    }
+                }
+
+                return@setOnTouchListener false
+            }
         }
+
+
 
         fragment?.let {
             /** 初期表示を新着記事の一覧にする。 */
@@ -33,6 +53,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+
     interface ButtonOnClickListener {
         fun onClick()
     }
@@ -40,5 +61,4 @@ class MainActivity : AppCompatActivity() {
     fun setButtonOnClickListener(listener: ButtonOnClickListener) {
         this.getButton = listener
     }
-
 }

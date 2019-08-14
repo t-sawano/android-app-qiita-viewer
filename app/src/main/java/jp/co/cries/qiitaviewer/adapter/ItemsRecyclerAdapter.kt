@@ -40,12 +40,12 @@ class ItemsRecyclerAdapter(private val itemsList: List<ItemEntity>, private val 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val item = itemsList[position]
 
-        if (holder is ItemViewHolder) bindingItemViewHolder(holder, item, position)
+        if (holder is ItemViewHolder) bindingItemViewHolder(holder, item)
     }
 
     /**  */
     @SuppressLint("ClickableViewAccessibility")
-    private fun bindingItemViewHolder(holder: ItemViewHolder, item: ItemEntity ,position: Int) {
+    private fun bindingItemViewHolder(holder: ItemViewHolder, item: ItemEntity) {
         val transform = RoundedTransformation(15, 1)
         val width = IMAGE_ICON_WIDTH
         val height = IMAGE_ICON_HEIGHT

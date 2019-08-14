@@ -13,10 +13,13 @@ import java.util.*
 import kotlin.math.max
 import kotlin.math.min
 
+/**
+ *
+ */
 class ItemMotionHelper : ItemTouchHelper.Callback() {
     /**  */
     var mItemTouchHelper: ItemTouchHelper? = null
-
+    /**  */
     private lateinit var articleList: MutableList<ItemEntity>
 
     // Swipe Menu が表示されている Item の foreground
@@ -24,6 +27,7 @@ class ItemMotionHelper : ItemTouchHelper.Callback() {
     private var mLockedBackground: View? = null
     private var recyclerViewAdapter: ItemsRecyclerAdapter? = null
 
+    /**  */
     private fun RecyclerView.ViewHolder.cast() = this as? ItemViewHolder
 
     // RecyclerView に変更があった場合に固定を解除する
@@ -48,6 +52,7 @@ class ItemMotionHelper : ItemTouchHelper.Callback() {
         }
     }
 
+    // RecyclerView に変更があった場合に固定を解除する
     private val mUnlockedBackground = object : View.OnLayoutChangeListener {
         override fun onLayoutChange(
             view: View?,
@@ -71,7 +76,7 @@ class ItemMotionHelper : ItemTouchHelper.Callback() {
 
     override fun getMovementFlags(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder): Int {
         return makeMovementFlags(
-            ItemTouchHelper.UP or ItemTouchHelper.DOWN,
+            ItemTouchHelper.UP or ItemTouchHelper.DOWN ,
             ItemTouchHelper.START or ItemTouchHelper.END
         )
     }
@@ -109,8 +114,9 @@ class ItemMotionHelper : ItemTouchHelper.Callback() {
         val holder = viewHolder.cast()
 
         holder?.let {
-            return holder.background.width.toFloat() / holder.itemView.width / -3
+            return holder.background.width.toFloat() / holder.itemView.width / 2
         }
+        //
         return super.getSwipeThreshold(viewHolder)
     }
 
@@ -242,6 +248,7 @@ class ItemMotionHelper : ItemTouchHelper.Callback() {
         }
     }
 
+    /**  */
     private fun deleteButtonClickListener(adapter: ItemsRecyclerAdapter?, position: Int) = View.OnClickListener {
         adapter?.let { adapter ->
             articleList.removeAt(position)
@@ -249,6 +256,7 @@ class ItemMotionHelper : ItemTouchHelper.Callback() {
         }
     }
 
+    /**  */
     private fun unlockItemView(selected: ItemViewHolder, isForce: Boolean = false) {
         // 固定を入れ替えるために、固定済みのItemを解除する
         // foreground
@@ -265,17 +273,20 @@ class ItemMotionHelper : ItemTouchHelper.Callback() {
         }
     }
 
+    /**  */
     private fun clearLockedForeground() {
         getDefaultUIUtil().clearView(mLockedForeground)
         mLockedForeground = null
     }
 
+    /**  */
     private fun clearLockedBackground() {
         getDefaultUIUtil().clearView(mLockedBackground)
         mLockedBackground?.setOnClickListener(null)
         mLockedBackground = null
     }
 
+    /**  */
     fun setArticleList(list: MutableList<ItemEntity>) {
         this.articleList = list
     }

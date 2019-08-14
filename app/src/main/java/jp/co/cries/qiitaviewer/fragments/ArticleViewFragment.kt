@@ -33,20 +33,23 @@ class ArticleViewFragment : Fragment() {
         val backButton: ImageView = view.findViewById(R.id.return_button)
 
         web.webViewClient = WebViewClient()
-        web.settings.javaScriptEnabled = true
+//        web.settings.javaScriptEnabled = true
         web.loadUrl(this.articleURI)
 
-        backButton.setOnClickListener {
-            val fragment = ArticleListFragment()
-            val fragmentManager = fragmentManager
-            val fragmentTransaction = fragmentManager?.beginTransaction()
+        backButton.setOnClickListener(backButtonOnClickListener)
+    }
 
-            fragmentTransaction?.let {
-                /** 初期表示を新着記事の一覧にする。 */
-                fragmentTransaction
-                    .replace(R.id.container, fragment)
-                    .commit()
-            }
+    /**  */
+    private val backButtonOnClickListener = View.OnClickListener {
+        val fragment = ArticleListFragment()
+        val fragmentManager = fragmentManager
+        val fragmentTransaction = fragmentManager?.beginTransaction()
+
+        fragmentTransaction?.let {
+            /** 初期表示を新着記事の一覧にする。 */
+            fragmentTransaction
+                .replace(R.id.container, fragment)
+                .commit()
         }
     }
 

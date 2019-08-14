@@ -6,6 +6,14 @@
                                                    android:layout_height="wrap_content"
                                                    android:id="@+id/row_item_article">
 
+    <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:id="@+id/horizontalLine"
+            android:background="#ADADAC"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+    />
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="60dp"
             android:layout_height="0dp"
@@ -30,9 +38,9 @@
             android:layout_height="wrap_content"
             android:id="@+id/foreground"
             android:background="#4C4C4B"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/horizontalLine">
 
         <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="0dp"
@@ -95,13 +103,6 @@
                     app:layout_constraintBottom_toBottomOf="@+id/articleUserNameHeader"
             />
         </androidx.constraintlayout.widget.ConstraintLayout>
-        <View
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:id="@+id/horizontalLine"
-                android:background="#646464"
-                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
         <ImageView
                 android:layout_width="60dp"
                 android:layout_height="60dp"
@@ -109,8 +110,9 @@
                 android:contentDescription="@null" tools:srcCompat="@mipmap/ic_launcher"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginTop="8dp"
-                app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
-                app:layout_constraintBottom_toTopOf="@+id/horizontalLine" android:layout_marginStart="2dp"/>
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginStart="2dp" android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"/>
         <ImageView
                 android:layout_width="34dp"
                 android:layout_height="43dp" app:srcCompat="@drawable/ic_menu_white"
